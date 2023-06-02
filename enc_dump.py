@@ -206,7 +206,6 @@ class ENC:
             # Extract the desired features from the desired layer. 
             if (desc == self.layerName or self.layerName == 'all'):
 
-                
                 if self.featureName == 'all':
                     #print("   LAYER:" + desc)
 
@@ -218,7 +217,7 @@ class ENC:
                             
                             print('       ATTR:' + feat_attribute + ':' + feat.GetFieldAsString(feat_attribute))
 
-                else:
+                elif self.featureName:
                   
                     # Handle a possible list of features to extract...
                     for name in self.featureName:
@@ -255,13 +254,13 @@ if __name__ == "__main__":
     enc_files_to_process = []
     args = parser.parse_args()
     verbose = args.verbose    
-    comma = args.comma
+    comma = "\t"
     
     
     if verbose >= 2:
         print("Arguments:")
         arguments = vars(args)
-        for key, value in arguments.iteritems():
+        for key, value in arguments.items():
             print("\t%s:\t\t%s" % (key,str(value)))
     
     
